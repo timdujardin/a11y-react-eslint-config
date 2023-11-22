@@ -10,13 +10,59 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/strict"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint", "react", "jsx-a11y"],
   "rules": {
-    "jsx-a11y/anchor-ambiguous-text": ["error"]
+    "jsx-a11y/anchor-ambiguous-text": [
+      "error",
+      {
+        "words": [
+          "click here",
+          "here",
+          "link",
+          "a link",
+          "learn more",
+          "click this",
+          "click me",
+          "more",
+          "continue",
+          "read more",
+          "go here",
+          "keep reading",
+          "download",
+          "view",
+          "details",
+          "go",
+          "sign up",
+          "get directions"
+        ]
+      }
+    ],
+    "jsx-a11y/aria-role": [
+      "error",
+      {
+        "ignoreNonDOM": false
+      }
+    ],
+    "jsx-a11y/control-has-associated-label": [
+      "error",
+      {
+        "labelAttributes": ["label"],
+        "ignoreElements": ["audio", "canvas", "embed", "tr", "video"],
+        "ignoreRoles": [
+          "grid",
+          "menu",
+          "menubar",
+          "row",
+          "tablist",
+          "toolbar",
+          "tree",
+          "treegrid"
+        ]
+      }
+    ]
   }
 }
